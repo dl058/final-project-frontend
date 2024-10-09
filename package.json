@@ -12,7 +12,10 @@
   "dependencies": {
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.7.7",
+<<<<<<< HEAD
+=======
     "firebase": "^10.14.0",
+>>>>>>> f9d250bf45a2a8b7a9dcdb81eccd6511453c4a42
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2"
