@@ -13,7 +13,6 @@ const HomeRouter = () => {
           molestiae, velit eius aliquid dolor qui non, error voluptatibus
           dignissimos fugiat?
         </p>
-        <button> Log In </button>
       </>
       <AccountRouter />
       <EventRouter />

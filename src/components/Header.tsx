@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header className="Header">
       <Link to="/">
-        <h1>Shoutouts App</h1>
+        <h2>Unplanned Adventures</h2>
       </Link>
       {user === null ? (
         <button onClick={signInWithGoogle}>Sign In</button>

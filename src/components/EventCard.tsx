@@ -5,3 +5,4 @@ const EventCard = () => {
 };
 
 export default EventCard;
+// each event and holds the detail pages
