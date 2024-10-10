@@ -3,18 +3,23 @@ import EventCard from "./EventCard";
 import "./EventList.css";
 
 export interface Props {
-  travelEvents: TravelEvent[];
+  travelEvents: TravelEvent[] | null;
 }
 
 const EventList = ({ travelEvents }: Props) => {
   return (
     <div className="EventList">
       <h2>List of Events </h2>
-      <ul>
-        {travelEvents.map((el) => (
-          <EventCard key={el.id} />
-        ))}
-      </ul>
+      {travelEvents ? (
+        <ul>
+          {travelEvents.map((travelEvent) => (
+            <EventCard key={travelEvent.id} travelEvent={travelEvent} />
+          ))}
+        </ul>
+      ) : (
+        <p> loading...</p>
+      )}
+      {/* maybe add a gif */}
     </div>
   );
 };

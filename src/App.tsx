@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Header from "./components/Header";
 import HomeRouter from "./components/HomeRouter";
+import EventDetails from "./components/EventDetails";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomeRouter />} />
+          <Route path="/details/:id" element={<EventDetails />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
