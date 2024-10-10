@@ -20,23 +20,26 @@ const Header = () => {
       />
       {isOpen ? (
         <ul className="dropdown">
-          <li>Preferences</li>
-          <li>Sign Up</li>
+          <li>
+            <Link to="/">
+              <h1>Home</h1>
+            </Link>
+          </li>
+          <li>Events</li>
+          <li>
+            {" "}
+            {user === null ? (
+              <button onClick={signInWithGoogle}>Sign In</button>
+            ) : (
+              <>
+                <p>Welcome, {user?.displayName}</p>
+                <img src={user.photoURL || ""} alt={user.displayName || ""} />
+                <button onClick={signOutOfGoogle}>Sign Out</button>
+              </>
+            )}
+          </li>
         </ul>
       ) : null}
-
-      <Link to="/">
-        <h1>Unplanned Adventure</h1>
-      </Link>
-      {user === null ? (
-        <button onClick={signInWithGoogle}>Sign In</button>
-      ) : (
-        <>
-          <p>Welcome, {user?.displayName}</p>
-          <img src={user.photoURL || ""} alt={user.displayName || ""} />
-          <button onClick={signOutOfGoogle}>Sign Out</button>
-        </>
-      )}
     </header>
   );
 };
