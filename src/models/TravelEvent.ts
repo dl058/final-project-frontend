@@ -43,6 +43,10 @@ interface Embedded {
   venues: Venues[];
 }
 
+interface Info {
+  info: string;
+}
+
 export default interface TravelEvent {
   name: string;
   type: string;
@@ -57,4 +61,5 @@ export default interface TravelEvent {
   state: State;
   city: City;
   _embedded: Embedded;
+  info?: Info;
 }
