@@ -1,3 +1,8 @@
+interface GeoPoint {
+  latitude: number;
+  longitude: number;
+}
+
 interface Image {
   url: string;
 }
@@ -10,4 +15,8 @@ export default interface TravelEvent {
   url: string;
   locale: string;
   images: Image[];
+  geoPoint?: GeoPoint;
+  venueId?: string;
+  attractionId?: string;
+  keyword?: string;
 }
