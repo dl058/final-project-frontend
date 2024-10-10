@@ -34,9 +34,6 @@ const EventDetails = () => {
 
 export default EventDetails;
 
-<<<<<<< HEAD
 // useparams to get id into here
-=======
 // pull down id from path params get eventsdetails by id func,
 // useParams()
->>>>>>> 93630054c4269478b9b1855d327ca5e517e613c8
