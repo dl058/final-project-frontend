@@ -1,5 +1,5 @@
 import axios from "axios";
-import EventResponse from "../models/EventResponse";
+import EventResponse from "../../../backend/functions/src/models/EventResponse";
 
 const ticketmasterBaseUrl = "https://app.ticketmaster.com/discovery/v2/events";
 const apiKey: string = import.meta.env.VITE_API_KEY || "";
