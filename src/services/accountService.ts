@@ -1,15 +1,15 @@
 import axios from "axios";
 import Account from "../models/Account";
 
-const baseUrl = import.meta.env.VITE_BASE_URL || "URL NOT FOUND";
+const baseUrl = import.meta.env.VITE_API_URL || "URL NOT FOUND";
 
 export const getAccounts = async (): Promise<Account[]> => {
   const res = await axios.get(`${baseUrl}/account`, {});
   return res.data;
 };
 
-export const getAccountById = async (_id: string): Promise<Account> => {
-  const res = await axios.get(`${baseUrl}/account/${_id}`, {});
+export const getAccountById = async (uid: string): Promise<Account> => {
+  const res = await axios.get(`${baseUrl}/account/${uid}`, {});
   return res.data;
 };
 
