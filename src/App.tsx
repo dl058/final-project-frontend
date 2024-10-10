@@ -16,7 +16,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomeRouter />} />
-          <Route path="/details/:id" element={<EventDetails />} />
+          <Route path="/event/:id" element={<EventDetails />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
