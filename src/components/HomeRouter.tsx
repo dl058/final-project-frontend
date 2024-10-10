@@ -17,13 +17,13 @@ const HomeRouter = () => {
       geopoint.latitude = position.coords.latitude;
       geopoint.longitude = position.coords.longitude;
       getEventNearMe(geopoint).then((res) => {
-        setEvents(res._embedded);
+        setEvents(res._embedded.events);
       });
     };
     const failure = () => {
       console.log("Geolocation not available");
       getRandomEvents().then((res) => {
-        setEvents(res._embedded);
+        setEvents(res._embedded.events);
       });
     };
     if (navigator.geolocation) {
