@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import AccountRouter from "./AccountRouter";
-import EventRouter from "./EventRouter";
+
 import "./HomeRouter.css";
 import { getEventNearMe, getRandomEvents } from "../services/eventService";
 import TravelEvent from "../models/TravelEvent";
+import EventList from "./EventList";
 
 const HomeRouter = () => {
   const [events, setEvents] = useState<TravelEvent[] | null>(null);
@@ -44,7 +45,7 @@ const HomeRouter = () => {
         </p>
       </>
       <AccountRouter />
-      <EventRouter />
+      <EventList travelEvents={events} />
     </>
   );
 };
