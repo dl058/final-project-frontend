@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useState } from "react";
 import "./Header.css";
 import { signInWithGoogle, signOutOfGoogle } from "../firebaseConfig";
 import { useContext } from "react";
