@@ -8,6 +8,9 @@ import {
 import Header from "./components/Header";
 import HomeRouter from "./components/HomeRouter";
 import EventDetails from "./components/EventDetails";
+import Favorites from "./components/Favorites";
+import EventList from "./components/EventList";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   return (
@@ -15,8 +18,10 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<HomeRouter />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/events" element={<HomeRouter />} />
           <Route path="/event/:id" element={<EventDetails />} />
+          <Route path="/favorites" element={<Favorites />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
