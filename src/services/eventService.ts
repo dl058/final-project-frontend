@@ -49,10 +49,13 @@ export const getRandomEvents = async (): Promise<EventResponse> => {
 };
 
 export const getEventByGeopoint = async (
-  geoPoint: string
+  geopoint: any
 ): Promise<EventResponse> => {
-  const res = await axios.get(`${ticketmasterBaseUrl}/${geoPoint}.json`, {
-    params: { apikey: apiKey },
+  const res = await axios.get(`${ticketmasterBaseUrl}.json`, {
+    params: {
+      apikey: apiKey,
+      geoPoint: `${geopoint.lat},${geopoint.lon}`,
+    },
   });
   return res.data;
 };

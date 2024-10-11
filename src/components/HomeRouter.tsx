@@ -1,14 +1,21 @@
 import { useEffect, useState } from "react";
 import AccountRouter from "./AccountRouter";
 import "./HomeRouter.css";
-import { getEventNearMe, getRandomEvents } from "../services/eventService";
+import {
+  getEventByGeopoint,
+  getEventNearMe,
+  getRandomEvents,
+} from "../services/eventService";
 import TravelEvent from "../models/TravelEvent";
 import EventList from "./EventList";
 import SearchForm from "./SearchForm";
+import LocationForm from "./LocationForm";
+import { getLocation } from "../services/locationService";
 
 const HomeRouter = () => {
   const [events, setEvents] = useState<TravelEvent[] | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [locationTerm, setLocationTerm] = useState<string>("");
 
   useEffect(() => {
     let geopoint: any = {};
@@ -32,7 +39,16 @@ const HomeRouter = () => {
       navigator.geolocation.getCurrentPosition(success, failure);
     }
   }, []);
-  console.log(events);
+
+  useEffect(() => {
+    if (locationTerm) {
+      getLocation(locationTerm).then((res) => {
+        getEventByGeopoint(res).then((res) => {
+          setEvents(res._embedded.events);
+        });
+      });
+    }
+  }, [locationTerm]);
 
   return (
     <>
@@ -50,6 +66,7 @@ const HomeRouter = () => {
       </>
       <AccountRouter />
       <SearchForm setSearchTerm={setSearchTerm} />
+      <LocationForm setLocationTerm={setLocationTerm} />
       <EventList travelEvents={events} />
     </>
   );
