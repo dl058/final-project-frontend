@@ -50,13 +50,13 @@ export default interface TravelEvent {
   url: string;
   images: Image[];
   geoPoint?: GeoPoint;
-  venue: Venues;
   keyword?: string;
   dates: Dates;
   priceRange: PriceRange[];
+  _embedded: Embedded;
+  venue: Venues;
   state: State;
   city: City;
-  _embedded: Embedded;
   info?: string;
   pleaseNote?: string;
 }
