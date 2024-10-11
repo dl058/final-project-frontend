@@ -1,0 +1,13 @@
+li.EventCard {
+  list-style: none;
+}
+
+a.travelEventId {
+  text-decoration: none;
+  color: black;
+}
+
+img.eventCardImg {
+  height: 200px;
+  width: 200px;
+}

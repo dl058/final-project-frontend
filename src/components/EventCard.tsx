@@ -16,7 +16,7 @@ const EventCard = ({ travelEvent }: Props) => {
   const convertTime = (dateTime: string) => {
     if (travelEvent) {
       let hours = parseInt(dateTime.slice(11, 13));
-      let time = dateTime.slice(13, 19);
+      let time = dateTime.slice(13, 16);
       let morning = true;
       morning = hours > 16 || hours < 4 ? false : true;
       hours = hours % 12 === 0 ? 12 : hours % 12;
@@ -34,11 +34,16 @@ const EventCard = ({ travelEvent }: Props) => {
   // const edit;
   return (
     <li className="EventCard">
-      <Link to={`/event/${encodeURIComponent(travelEvent.id)}`}>
+      <Link
+        to={`/event/${encodeURIComponent(travelEvent.id)}`}
+        className="travelEventId"
+      >
         <p>{travelEvent.name}</p>
+        <img src={travelEvent.images[4].url} className="eventCardImg" />
         <p>
-          Location {travelEvent._embedded.venues[0].city.name},
-          {travelEvent._embedded.venues[0].state.name}
+          Location: {travelEvent._embedded.venues[0].city.name},{" "}
+          {travelEvent._embedded.venues[0].state.stateCode},{" "}
+          {convertTime(travelEvent.dates.start.dateTime)}
         </p>
       </Link>
       {isItAFav(travelEvent.id) === false ? (
