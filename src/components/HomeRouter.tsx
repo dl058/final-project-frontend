@@ -5,18 +5,18 @@ import {
   getEventByGeopoint,
   getEventNearMe,
   getEventsByKeyword,
+  getEventsBySearchTermAndLocation,
   getRandomEvents,
 } from "../services/eventService";
 import TravelEvent from "../models/TravelEvent";
 import EventList from "./EventList";
-import SearchForm from "./SearchForm";
 import LocationForm from "./LocationForm";
 import { getLocation } from "../services/locationService";
 
 const HomeRouter = () => {
   const [events, setEvents] = useState<TravelEvent[] | null>(null);
-  const [searchTerm, setSearchTerm] = useState<string>("");
-  const [locationTerm, setLocationTerm] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState<string | null>("");
+  const [locationTerm, setLocationTerm] = useState<any>("");
 
   useEffect(() => {
     let geopoint: any = {};
@@ -42,28 +42,37 @@ const HomeRouter = () => {
   }, []);
 
   useEffect(() => {
-    if (locationTerm) {
-      getLocation(locationTerm).then((res) => {
-        getEventByGeopoint(res).then((res) => {
+    if (locationTerm || searchTerm) {
+      getLocation(
+        locationTerm.street,
+        locationTerm.city,
+        locationTerm.state,
+        locationTerm.country,
+        locationTerm.postalcode
+      ).then((res) => {
+        console.log(res);
+
+        let geo = null;
+        if (res) {
+          geo = res;
+        }
+        if (searchTerm === "") {
+          setSearchTerm(null);
+        }
+        getEventsBySearchTermAndLocation(geo, searchTerm).then((res) => {
           setEvents(res._embedded.events);
         });
       });
     }
-  }, [locationTerm]);
-
-  useEffect(() => {
-    if (searchTerm) {
-      getEventsByKeyword(searchTerm).then((res) => {
-        setEvents(res._embedded.events);
-      });
-    }
-  }, [searchTerm]);
+  }, [locationTerm, searchTerm]);
 
   return (
     <>
       <AccountRouter />
-      <SearchForm setSearchTerm={setSearchTerm} />
-      <LocationForm setLocationTerm={setLocationTerm} />
+      <LocationForm
+        setLocationTerm={setLocationTerm}
+        setSearchTerm={setSearchTerm}
+      />
       <EventList travelEvents={events} />
     </>
   );

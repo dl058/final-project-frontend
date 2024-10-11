@@ -31,6 +31,7 @@ const EventCard = ({ travelEvent }: Props) => {
       return `${hours}${time}${morning ? "AM" : "PM"}`;
     }
   };
+
   // const edit;
   return (
     <li className="EventCard">
