@@ -27,8 +27,6 @@ const EventDetails = () => {
       return `${hours}${time}${morning ? "AM" : "PM"}`;
     }
   };
-  console.log(convertTime(travelEvent!.dates.start.dateTime));
-  console.log(travelEvent?.dates.start.dateTime);
 
   useEffect(() => {
     if (id) {
@@ -41,13 +39,20 @@ const EventDetails = () => {
       {travelEvent ? (
         <div className="Result">
           <h2>{travelEvent.name}</h2>
-          <img src={travelEvent.images[0].url} alt="" />
+          <img src={travelEvent.images[4].url} alt="" />
           <p>
             {travelEvent._embedded.venues[0].city.name}{" "}
             {travelEvent._embedded.venues[0].state.name},{" "}
             {travelEvent._embedded.venues[0].postalCode}
           </p>
           <p>{convertTime(travelEvent.dates.start.dateTime)} EST</p>
+          {travelEvent.info ? (
+            <p>{travelEvent.info}</p>
+          ) : travelEvent.pleaseNote ? (
+            <p>{travelEvent.pleaseNote}</p>
+          ) : (
+            <p>No info available</p>
+          )}
         </div>
       ) : (
         <p>Loading...</p>
@@ -57,7 +62,3 @@ const EventDetails = () => {
 };
 
 export default EventDetails;
-
-// useparams to get id into here
-// pull down id from path params get eventsdetails by id func,
-// useParams()
