@@ -11,7 +11,7 @@ const SearchForm = ({ setSearchTerm }: Props) => {
   const [query, setQuery] = useState("");
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // setSearchTerm(query);
+    setSearchTerm(query);
     navigate(`/?${new URLSearchParams({ term: query })}`);
     setQuery("");
   };
