@@ -48,6 +48,8 @@ const HomeRouter = () => {
 
   return (
     <>
+<<<<<<< HEAD
+=======
       <>
         <h1> unPlanned Adventure </h1>
         <p>
@@ -60,6 +62,7 @@ const HomeRouter = () => {
           Because the best moments are the ones you don't plan!
         </p>
       </>
+>>>>>>> 8d6f1e1467418751ab95f3c6d7e2ff849fe71ea5
       <AccountRouter />
       <SearchForm setSearchTerm={setSearchTerm} />
       <EventList travelEvents={events} />

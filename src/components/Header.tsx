@@ -25,7 +25,12 @@ const Header = () => {
               <h1>Home</h1>
             </Link>
           </li>
-          <li>Events</li>
+          <Link to="/events">
+            <li>Events</li>
+          </Link>
+          <Link to="/favorites">
+            <li>Favorites</li>
+          </Link>
           <li>
             {" "}
             {user === null ? (

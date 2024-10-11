@@ -1,12 +1,17 @@
 import { Link } from "react-router-dom";
 import "./EventCard.css";
 import TravelEvent from "../models/TravelEvent";
+import { useContext } from "react";
+import FavoritesContext from "../context/FavoriteContext";
 
 interface Props {
   travelEvent: TravelEvent;
 }
 
 const EventCard = ({ travelEvent }: Props) => {
+  const { addFav } = useContext(FavoritesContext);
+  const { removeFav } = useContext(FavoritesContext);
+  const { isItAFav } = useContext(FavoritesContext);
   // To convert Zulu time to EST
   const convertTime = (dateTime: string) => {
     if (travelEvent) {
@@ -41,6 +46,11 @@ const EventCard = ({ travelEvent }: Props) => {
           {convertTime(travelEvent.dates.start.dateTime)}
         </p>
       </Link>
+      {isItAFav(travelEvent.id) === false ? (
+        <button onClick={() => addFav(travelEvent)}>Favorite</button>
+      ) : (
+        <button onClick={() => removeFav(travelEvent.id)}>Remove</button>
+      )}
     </li>
   );
 };
