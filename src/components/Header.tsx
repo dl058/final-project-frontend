@@ -21,9 +21,7 @@ const Header = () => {
       {isOpen ? (
         <ul className="dropdown">
           <li>
-            <Link to="/">
-              <h1>Home</h1>
-            </Link>
+            <Link to="/">Home</Link>
           </li>
           <Link to="/events">
             <li>Events</li>
@@ -37,14 +35,19 @@ const Header = () => {
               <button onClick={signInWithGoogle}>Sign In</button>
             ) : (
               <>
-                <p>Welcome, {user?.displayName}</p>
-                <img src={user.photoURL || ""} alt={user.displayName || ""} />
                 <button onClick={signOutOfGoogle}>Sign Out</button>
               </>
             )}
           </li>
         </ul>
       ) : null}
+      {user !== null ? (
+        <>
+          <p>Welcome, {user?.displayName}</p>
+        </>
+      ) : (
+        <p></p>
+      )}
     </header>
   );
 };
