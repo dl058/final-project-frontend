@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import AccountRouter from "./AccountRouter";
 import "./HomeRouter.css";
-import { getEventNearMe, getRandomEvents } from "../services/eventService";
+import {
+  getEventNearMe,
+  getEventsByKeyword,
+  getRandomEvents,
+} from "../services/eventService";
 import TravelEvent from "../models/TravelEvent";
 import EventList from "./EventList";
 import SearchForm from "./SearchForm";
@@ -33,6 +37,14 @@ const HomeRouter = () => {
     }
   }, []);
   console.log(events);
+
+  useEffect(() => {
+    if (searchTerm) {
+      getEventsByKeyword(searchTerm).then((res) => {
+        setEvents(res._embedded.events);
+      });
+    }
+  }, [searchTerm]);
 
   return (
     <>
