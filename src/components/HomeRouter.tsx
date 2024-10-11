@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import AccountRouter from "./AccountRouter";
-
 import "./HomeRouter.css";
 import { getEventNearMe, getRandomEvents } from "../services/eventService";
 import TravelEvent from "../models/TravelEvent";
 import EventList from "./EventList";
+import SearchForm from "./SearchForm";
 
 const HomeRouter = () => {
   const [events, setEvents] = useState<TravelEvent[] | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   useEffect(() => {
     let geopoint: any = {};
@@ -38,13 +39,17 @@ const HomeRouter = () => {
       <>
         <h1> unPlanned Adventure </h1>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. In voluptas
-          excepturi doloribus animi ullam nemo aperiam quod. Quam laboriosam,
-          molestiae, velit eius aliquid dolor qui non, error voluptatibus
-          dignissimos fugiat?
+          Unplanned Adventure is your go-to for spontaneous, exciting
+          experiences tailored just for you. Simply enter your zip code, set
+          your adventure preferences, and let Unplan'd Adventure suggest
+          unplanned activities that fit your budget and location. Whether you're
+          looking to break free from routine or discover something new, Unplan'd
+          Adventure makes it easy to explore without the hassle of planning.
+          Because the best moments are the ones you don't plan!
         </p>
       </>
       <AccountRouter />
+      <SearchForm setSearchTerm={setSearchTerm} />
       <EventList travelEvents={events} />
     </>
   );
