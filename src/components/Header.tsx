@@ -13,7 +13,9 @@ const Header = () => {
   };
   return (
     <header className="header">
-      <h1> unPlanned Adventure </h1>
+      <Link to={"/"}>
+        <h1> unPlanned Adventure </h1>
+      </Link>
       {isOpen ? (
         <ul className="dropdown">
           <li>
@@ -33,7 +35,7 @@ const Header = () => {
               </button>
             ) : (
               <>
-                <button onClick={signOutOfGoogle} className="signOutBtn">
+                <button onClick={signOutOfGoogle} className="signBtn">
                   Sign Out
                 </button>
               </>
@@ -41,19 +43,12 @@ const Header = () => {
           </li>
         </ul>
       ) : null}
-      {user !== null ? (
+      {user !== null && (
         <>
           <p>Welcome, {user?.displayName}</p>
         </>
-      ) : (
-        <p></p>
       )}
-      <img
-        src="src/assets/threeLines.png"
-        alt="lines"
-        onClick={toggleDropDown}
-        className="headerImg"
-      />
+      <i className="fa-solid fa-bars" onClick={toggleDropDown}></i>
     </header>
   );
 };

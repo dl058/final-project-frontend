@@ -15,14 +15,8 @@ ul.dropdown {
 }
 
 .signBtn {
-  background-color: #fefee3;
-  border: none;
-  border-radius: 5px;
-}
-
-.signOutBtn {
-  background-color: #fefee3;
-  border: none;
+  background-color: #d6eeff;
+  border: 1px solid #92c2e4;
   border-radius: 5px;
 }
 
@@ -33,6 +27,22 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   height: 100%;
+  font-family: "Yeseva One", serif;
+}
+
+li {
+  margin: 0px 2px 0px 2px;
+}
+
+.fa-bars {
+  /* position: relative; */
+  text-align: right;
+  margin-right: 10px;
+}
+
+.fav-bars:active {
+  text-align: right;
+  margin-right: 50px;
+  padding-right: 50px;
 }

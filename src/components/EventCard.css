@@ -17,3 +17,9 @@ button.favBtn {
   border: none;
   border-radius: 5px;
 }
+
+button.favBtn:hover {
+  background-color: plum;
+  border: none;
+  border-radius: 5px;
+}
