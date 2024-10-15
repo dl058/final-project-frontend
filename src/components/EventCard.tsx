@@ -48,9 +48,13 @@ const EventCard = ({ travelEvent }: Props) => {
         </p>
       </Link>
       {isItAFav(travelEvent.id) === false ? (
-        <button onClick={() => addFav(travelEvent)}>Favorite</button>
+        <button onClick={() => addFav(travelEvent)} className="favBtn">
+          <i className="fa-regular fa-heart"></i>
+        </button>
       ) : (
-        <button onClick={() => removeFav(travelEvent.id)}>Remove</button>
+        <button onClick={() => removeFav(travelEvent.id)} className="favBtn">
+          <i className="fa-solid fa-heart"></i>
+        </button>
       )}
     </li>
   );

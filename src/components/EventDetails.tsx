@@ -39,7 +39,7 @@ const EventDetails = () => {
       {travelEvent ? (
         <div className="Result">
           <h2>{travelEvent.name}</h2>
-          <img src={travelEvent.images[4].url} alt="" />
+          <img src={travelEvent.images[4].url} className="eventDetailsImg" />
           <p>
             {travelEvent._embedded.venues[0].city.name}{" "}
             {travelEvent._embedded.venues[0].state.name},{" "}
