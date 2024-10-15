@@ -1,0 +1,25 @@
+/* resets */
+body,
+h1,
+p {
+  margin: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  color: #3e442b;
+}
+h1 {
+  margin-right: 32px;
+  margin-left: 3px;
+}
+
+a {
+  text-decoration: none;
+  color: #3e442b;
+}
+
+li {
+  color: #3e442b;
+}

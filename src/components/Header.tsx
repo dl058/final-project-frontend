@@ -13,11 +13,7 @@ const Header = () => {
   };
   return (
     <header className="header">
-      <img
-        src="src/assets/threeLines.png"
-        alt="lines"
-        onClick={toggleDropDown}
-      />
+      <h1> unPlanned Adventure </h1>
       {isOpen ? (
         <ul className="dropdown">
           <li>
@@ -32,10 +28,14 @@ const Header = () => {
           <li>
             {" "}
             {user === null ? (
-              <button onClick={signInWithGoogle}>Sign In</button>
+              <button onClick={signInWithGoogle} className="signBtn">
+                Sign In
+              </button>
             ) : (
               <>
-                <button onClick={signOutOfGoogle}>Sign Out</button>
+                <button onClick={signOutOfGoogle} className="signOutBtn">
+                  Sign Out
+                </button>
               </>
             )}
           </li>
@@ -48,6 +48,12 @@ const Header = () => {
       ) : (
         <p></p>
       )}
+      <img
+        src="src/assets/threeLines.png"
+        alt="lines"
+        onClick={toggleDropDown}
+        className="headerImg"
+      />
     </header>
   );
 };
