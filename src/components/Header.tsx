@@ -39,6 +39,9 @@ const Header = () => {
             </Link>
           </li>
           <li>
+            <Link to="search">Search</Link>
+          </li>
+          <li>
             {" "}
             {user === null ? (
               <button onClick={signInWithGoogle} className="signBtn">
