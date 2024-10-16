@@ -2,21 +2,22 @@ import { FormEvent, useState } from "react";
 import "./LocationForm.css";
 import { getLocation } from "../services/locationService";
 import LocationResponse from "../models/LocationResponse";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
-interface Props {
-  setLocationTerm: (string: any) => void;
-  setSearchTerm: (string: string) => void;
-}
-
-const LocationForm = ({ setLocationTerm, setSearchTerm }: Props) => {
+const LocationForm = () => {
   const [query, setQuery] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
+  const nav = useNavigate();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setSearchTerm(query);
-    setLocationTerm({ city, state });
+    let params = {
+      ...(city ? { city: city } : {}),
+      ...(state ? { state: state } : {}),
+      ...(query ? { query: query } : {}),
+    };
+    nav(`/events?${new URLSearchParams(params)}`);
   };
 
   return (
