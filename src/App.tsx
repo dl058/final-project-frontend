@@ -11,6 +11,7 @@ import EventDetails from "./components/EventDetails";
 import Favorites from "./components/Favorites";
 import EventList from "./components/EventList";
 import LandingPage from "./components/LandingPage";
+import LocationForm from "./components/LocationForm";
 
 function App() {
   return (
@@ -19,10 +20,11 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/search" element={<LocationForm />} />
           <Route path="/events" element={<HomeRouter />} />
           <Route path="/event/:id" element={<EventDetails />} />
           <Route path="/favorites" element={<Favorites />} />
-          <Route path="*" element={<Navigate to="/" />} />
+          {/* <Route path="*" element={<Navigate to="/" />} /> */}
         </Routes>
       </Router>
     </>

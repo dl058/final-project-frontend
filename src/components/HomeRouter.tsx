@@ -7,55 +7,46 @@ import {
 } from "../services/eventService";
 import TravelEvent from "../models/TravelEvent";
 import EventList from "./EventList";
-import LocationForm from "./LocationForm";
-import { getLocation } from "../services/locationService";
+import { useSearchParams } from "react-router-dom";
 
 const HomeRouter = () => {
   const [events, setEvents] = useState<TravelEvent[] | null>(null);
-  const [searchTerm, setSearchTerm] = useState<string | null>("");
-  const [locationTerm, setLocationTerm] = useState<any>("");
+  let [searchParams] = useSearchParams();
+  let city = searchParams.get("city") || null;
+  let state = searchParams.get("state") || null;
+  let query = searchParams.get("query") || null;
 
   useEffect(() => {
-    let geopoint: any = {};
-    const success = (position: any) => {
-      console.log(position);
-      console.log(position.coords.latitude);
+    if (city || query || state) {
+      getEventsBySearchTermAndLocation(city, state, query).then((res) => {
+        setEvents(res._embedded.events);
+      });
+    } else {
+      let geopoint: any = {};
+      const success = (position: any) => {
+        console.log(position);
+        console.log(position.coords.latitude);
 
-      geopoint.latitude = position.coords.latitude;
-      geopoint.longitude = position.coords.longitude;
-      getEventNearMe(geopoint).then((res) => {
-        setEvents(res._embedded.events);
-      });
-    };
-    const failure = () => {
-      console.log("Geolocation not available");
-      getRandomEvents().then((res) => {
-        setEvents(res._embedded.events);
-      });
-    };
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(success, failure);
+        geopoint.latitude = position.coords.latitude;
+        geopoint.longitude = position.coords.longitude;
+        getEventNearMe(geopoint).then((res) => {
+          setEvents(res._embedded.events);
+        });
+      };
+      const failure = () => {
+        console.log("Geolocation not available");
+        getRandomEvents().then((res) => {
+          setEvents(res._embedded.events);
+        });
+      };
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, failure);
+      }
     }
-  }, []);
-
-  useEffect(() => {
-    if (locationTerm || searchTerm) {
-      getEventsBySearchTermAndLocation(
-        locationTerm.city,
-        locationTerm.state,
-        searchTerm
-      ).then((res) => {
-        setEvents(res._embedded.events);
-      });
-    }
-  }, [locationTerm, searchTerm]);
+  }, [city, state, query]);
 
   return (
     <>
-      <LocationForm
-        setLocationTerm={setLocationTerm}
-        setSearchTerm={setSearchTerm}
-      />
       <EventList travelEvents={events} />
     </>
   );

@@ -27,6 +27,9 @@ const Header = () => {
           <Link to="/favorites">
             <li>Favorites</li>
           </Link>
+          <Link to="/search">
+            <li>Search</li>
+          </Link>
           <li>
             {" "}
             {user === null ? (
