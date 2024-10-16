@@ -32,6 +32,14 @@ const EventCard = ({ travelEvent }: Props) => {
     }
   };
 
+  const findDate = (dateTime: string) => {
+    if (travelEvent || null) {
+      let date = dateTime.slice(5, 10);
+      let year = dateTime.slice(0, 4);
+      return `${date}-${year}`;
+    }
+  };
+
   // const edit;
   return (
     <li className="EventCard">
@@ -41,6 +49,7 @@ const EventCard = ({ travelEvent }: Props) => {
       >
         <p>{travelEvent.name}</p>
         <img src={travelEvent.images[4].url} className="eventCardImg" />
+        <p>Date: {findDate(travelEvent.dates.start.dateTime)}</p>
         <p>
           Location: {travelEvent._embedded.venues[0].city.name},{" "}
           {travelEvent._embedded.venues[0].state.stateCode},{" "}
