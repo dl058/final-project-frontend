@@ -9,9 +9,8 @@ interface Props {
 }
 
 const EventCard = ({ travelEvent }: Props) => {
-  const { addFav } = useContext(FavoritesContext);
-  const { removeFav } = useContext(FavoritesContext);
-  const { isItAFav } = useContext(FavoritesContext);
+  const { addFav, removeFav, isItAFav } = useContext(FavoritesContext);
+
   // To convert Zulu time to EST
   const convertTime = (dateTime: string) => {
     if (travelEvent) {
