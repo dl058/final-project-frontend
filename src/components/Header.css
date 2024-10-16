@@ -1,5 +1,5 @@
 img.headerImg {
-  width: 6%;
+  width: 100%;
   height: auto;
   cursor: pointer;
   margin: 8px;
@@ -15,9 +15,13 @@ ul.dropdown {
 }
 
 .signBtn {
-  background-color: #d6eeff;
+  background-color: #ecf2f4;
   border: 1px solid #92c2e4;
-  border-radius: 5px;
+  border-radius: 10px;
+  color: #c54114;
+  padding: 10px 20 px;
+  font-size: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header {
@@ -30,6 +34,15 @@ header {
   height: 100%;
   font-family: "Yeseva One", serif;
 }
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 100px;
+  height: auto;
+  margin-right: 15px;
+}
 
 li {
   margin: 0px 2px 0px 2px;
@@ -39,10 +52,26 @@ li {
   /* position: relative; */
   text-align: right;
   margin-right: 10px;
+  color: #c54114;
+}
+.fa-heart {
+  color: #c54114;
+}
+.fa-calendar {
+  color: #c54114;
+}
+
+.fa-house {
+  color: #c54114;
 }
 
 .fav-bars:active {
   text-align: right;
   margin-right: 50px;
   padding-right: 50px;
+}
+
+.highlighted {
+  color: #c54114;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
 }

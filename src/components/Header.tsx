@@ -4,6 +4,14 @@ import { signInWithGoogle, signOutOfGoogle } from "../firebaseConfig";
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHouse,
+  faBars,
+  faCalendar,
+  faHeart,
+} from "@fortawesome/free-solid-svg-icons";
+import logo from "../assets/logo.jpg";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
@@ -13,23 +21,30 @@ const Header = () => {
   };
   return (
     <header className="header">
-      <Link to={"/"}>
-        <h1> unPlanned Adventure </h1>
+      <Link to={"/"} className="logo-container">
+        <img src={logo} alt="unPlan'd Adventure Logo" className="logo" />
+        <h1>
+          {" "}
+          u<span className="highlighted">nP</span>lan'd Adventure{" "}
+        </h1>
       </Link>
       {isOpen ? (
         <ul className="dropdown">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">
+              <FontAwesomeIcon icon={faHouse} /> Home
+            </Link>
           </li>
-          <Link to="/events">
-            <li>Events</li>
-          </Link>
-          <Link to="/favorites">
-            <li>Favorites</li>
-          </Link>
-          <Link to="/search">
-            <li>Search</li>
-          </Link>
+          <li>
+            <Link to="/events">
+              <FontAwesomeIcon icon={faCalendar} /> Events
+            </Link>
+          </li>
+          <li>
+            <Link to="/favorites">
+              <FontAwesomeIcon icon={faHeart} /> Favorites
+            </Link>
+          </li>
           <li>
             {" "}
             {user === null ? (
@@ -51,7 +66,11 @@ const Header = () => {
           <p>Welcome, {user?.displayName}</p>
         </>
       )}
-      <i className="fa-solid fa-bars" onClick={toggleDropDown}></i>
+      <FontAwesomeIcon
+        icon={faBars}
+        onClick={toggleDropDown}
+        className="menuIcon"
+      />
     </header>
   );
 };
