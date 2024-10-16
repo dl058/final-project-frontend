@@ -64,14 +64,14 @@ const EventDetails = () => {
           <a href={travelEvent.url} className="ticket">
             Purchase Ticket
           </a>
-          <p>Start Date: {findDate(travelEvent.dates.start.dateTime)}</p>
+          <p>Date: {findDate(travelEvent.dates.start.dateTime)}</p>
           <p>Start Time: {convertTime(travelEvent.dates.start.dateTime)} EST</p>
           {travelEvent.info ? (
-            <p>{travelEvent.info}</p>
+            <p className="eventDetailsInfo">{travelEvent.info}</p>
           ) : travelEvent.pleaseNote ? (
-            <p>{travelEvent.pleaseNote}</p>
+            <p className="eventDetailsInfo">{travelEvent.pleaseNote}</p>
           ) : (
-            <p>No info available at this time</p>
+            <p className="eventDetailsInfo">No info available at this time</p>
           )}
           {isItAFav(travelEvent.id) === false ? (
             <button onClick={() => addFav(travelEvent)} className="favBtn">
