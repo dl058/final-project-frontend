@@ -4,13 +4,6 @@ import { signInWithGoogle, signOutOfGoogle } from "../firebaseConfig";
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHouse,
-  faBars,
-  faCalendar,
-  faHeart,
-} from "@fortawesome/free-solid-svg-icons";
 import logo from "../assets/logo.jpg";
 
 const Header = () => {
@@ -32,17 +25,17 @@ const Header = () => {
         <ul className="dropdown">
           <li>
             <Link to="/">
-              <FontAwesomeIcon icon={faHouse} /> Home
+              <i className="fa-solid fa-house"></i> Home
             </Link>
           </li>
           <li>
             <Link to="/events">
-              <FontAwesomeIcon icon={faCalendar} /> Events
+              <i className="fa-solid fa-calendar"></i> Events
             </Link>
           </li>
           <li>
             <Link to="/favorites">
-              <FontAwesomeIcon icon={faHeart} /> Favorites
+              <i className="fa-solid fa-heart"></i> Favorites
             </Link>
           </li>
           <li>
@@ -66,11 +59,7 @@ const Header = () => {
           <p>Welcome, {user?.displayName}</p>
         </>
       )}
-      <FontAwesomeIcon
-        icon={faBars}
-        onClick={toggleDropDown}
-        className="menuIcon"
-      />
+      <i className="fa-solid fa-bars" onClick={toggleDropDown}></i>
     </header>
   );
 };
