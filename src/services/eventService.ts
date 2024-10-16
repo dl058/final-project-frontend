@@ -28,11 +28,13 @@ export const getEventByGeopoint = async (
 };
 
 export const getEventsBySearchTermAndLocation = async (
-  geopoint: any | null,
+  city: string,
+  state: string,
   keyword: string | null
 ): Promise<EventResponse> => {
   let params = {
-    ...(geopoint ? { geoPoint: `${geopoint.lat},${geopoint.lon}` } : {}),
+    ...(city ? { city: `${city},${city}` } : {}),
+    ...(state ? { state: `${state},${state}` } : {}),
     ...(keyword ? { keyword: keyword } : {}),
     apikey: apiKey,
     countryCode: "US",

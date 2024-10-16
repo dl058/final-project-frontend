@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
-import AccountRouter from "./AccountRouter";
 import "./HomeRouter.css";
 import {
-  getEventByGeopoint,
   getEventNearMe,
-  getEventsByKeyword,
   getEventsBySearchTermAndLocation,
   getRandomEvents,
 } from "../services/eventService";
@@ -43,25 +40,12 @@ const HomeRouter = () => {
 
   useEffect(() => {
     if (locationTerm || searchTerm) {
-      getLocation(
-        locationTerm.street,
+      getEventsBySearchTermAndLocation(
         locationTerm.city,
         locationTerm.state,
-        locationTerm.country,
-        locationTerm.postalcode
+        searchTerm
       ).then((res) => {
-        console.log(res);
-
-        let geo = null;
-        if (res) {
-          geo = res;
-        }
-        if (searchTerm === "") {
-          setSearchTerm(null);
-        }
-        getEventsBySearchTermAndLocation(geo, searchTerm).then((res) => {
-          setEvents(res._embedded.events);
-        });
+        setEvents(res._embedded.events);
       });
     }
   }, [locationTerm, searchTerm]);

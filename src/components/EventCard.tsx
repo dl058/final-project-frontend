@@ -13,7 +13,7 @@ const EventCard = ({ travelEvent }: Props) => {
 
   // To convert Zulu time to EST
   const convertTime = (dateTime: string) => {
-    if (travelEvent) {
+    if (dateTime) {
       let hours = parseInt(dateTime.slice(11, 13));
       let time = dateTime.slice(13, 16);
       let morning = true;
@@ -32,7 +32,7 @@ const EventCard = ({ travelEvent }: Props) => {
   };
 
   const findDate = (dateTime: string) => {
-    if (travelEvent || null) {
+    if (dateTime) {
       let date = dateTime.slice(5, 10);
       let year = dateTime.slice(0, 4);
       return `${date}-${year}`;
