@@ -1,5 +1,12 @@
+h2 {
+  text-align: center;
+}
+
 li.EventCard {
   list-style: none;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 a.travelEventId {
@@ -8,18 +15,36 @@ a.travelEventId {
 }
 
 img.eventCardImg {
-  height: 200px;
-  width: 200px;
+  height: auto;
+  width: 100%;
 }
 
 button.favBtn {
   background-color: pink;
   border: none;
   border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
 }
 
 button.favBtn:hover {
   background-color: plum;
   border: none;
   border-radius: 5px;
+}
+ul {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+p.eventName {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+p.eventInfo {
+  font-size: 10px;
+  text-align: center;
 }

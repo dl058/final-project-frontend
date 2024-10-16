@@ -46,10 +46,12 @@ const EventCard = ({ travelEvent }: Props) => {
         to={`/event/${encodeURIComponent(travelEvent.id)}`}
         className="travelEventId"
       >
-        <p>{travelEvent.name}</p>
+        <p className="eventName">{travelEvent.name}</p>
         <img src={travelEvent.images[4].url} className="eventCardImg" />
-        <p>Date: {findDate(travelEvent.dates.start.dateTime)}</p>
-        <p>
+        <p className="eventInfo">
+          Date: {findDate(travelEvent.dates.start.dateTime)}
+        </p>
+        <p className="eventInfo">
           Location: {travelEvent._embedded.venues[0].city.name},{" "}
           {travelEvent._embedded.venues[0].state.stateCode},{" "}
           {convertTime(travelEvent.dates.start.dateTime)}
