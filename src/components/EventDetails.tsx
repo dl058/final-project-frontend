@@ -1,12 +1,16 @@
 import "./EventDetails.css";
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+
+import { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 import { getEventById } from "../services/eventService";
 import TravelEvent from "../models/TravelEvent";
+import FavoritesContext from "../context/FavoriteContext";
 
 const EventDetails = () => {
   const [travelEvent, setTravelEvent] = useState<TravelEvent | null>(null);
   const id: string = useParams().id!;
+  const { addFav, removeFav, isItAFav } = useContext(FavoritesContext);
 
   const findImage = (eventImage: TravelEvent) => {
     return eventImage.images.find((image) => image.ratio === "16_9");
@@ -67,7 +71,19 @@ const EventDetails = () => {
           ) : travelEvent.pleaseNote ? (
             <p>{travelEvent.pleaseNote}</p>
           ) : (
-            <p>No info available</p>
+            <p>No info available at this time</p>
+          )}
+          {isItAFav(travelEvent.id) === false ? (
+            <button onClick={() => addFav(travelEvent)} className="favBtn">
+              <i className="fa-regular fa-heart"></i>
+            </button>
+          ) : (
+            <button
+              onClick={() => removeFav(travelEvent.id)}
+              className="favBtn"
+            >
+              <i className="fa-solid fa-heart"></i>
+            </button>
           )}
         </div>
       ) : (
