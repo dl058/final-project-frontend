@@ -5,6 +5,7 @@ interface GeoPoint {
 
 interface Image {
   url: string;
+  ratio: string;
 }
 
 interface Dates {

@@ -1,5 +1,4 @@
-// import './EventDetails.css'
-
+import "./EventDetails.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getEventById } from "../services/eventService";
@@ -9,10 +8,14 @@ const EventDetails = () => {
   const [travelEvent, setTravelEvent] = useState<TravelEvent | null>(null);
   const id: string = useParams().id!;
 
+  const findImage = (eventImage: TravelEvent) => {
+    return eventImage.images.find((image) => image.ratio === "16_9");
+  };
+
   const convertTime = (dateTime: string) => {
     if (travelEvent) {
       let hours = parseInt(dateTime.slice(11, 13));
-      let time = dateTime.slice(13, 19);
+      let time = dateTime.slice(13, 16);
       let morning = true;
       morning = hours > 16 || hours < 4 ? false : true;
       hours = hours % 12 === 0 ? 12 : hours % 12;
@@ -39,13 +42,13 @@ const EventDetails = () => {
       {travelEvent ? (
         <div className="Result">
           <h2>{travelEvent.name}</h2>
-          <img src={travelEvent.images[4].url} className="eventDetailsImg" />
+          <img src={findImage(travelEvent)?.url} className="eventDetailsImg" />
           <p>
             {travelEvent._embedded.venues[0].city.name}{" "}
             {travelEvent._embedded.venues[0].state.name},{" "}
             {travelEvent._embedded.venues[0].postalCode}
           </p>
-          <p>{convertTime(travelEvent.dates.start.dateTime)} EST</p>
+          <p>Start Time: {convertTime(travelEvent.dates.start.dateTime)} EST</p>
           {travelEvent.info ? (
             <p>{travelEvent.info}</p>
           ) : travelEvent.pleaseNote ? (

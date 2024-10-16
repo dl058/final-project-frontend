@@ -68,7 +68,6 @@ const HomeRouter = () => {
 
   return (
     <>
-      <AccountRouter />
       <LocationForm
         setLocationTerm={setLocationTerm}
         setSearchTerm={setSearchTerm}
