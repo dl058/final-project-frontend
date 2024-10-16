@@ -1,6 +1,8 @@
 import "./EventDetails.css";
+
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
 import { getEventById } from "../services/eventService";
 import TravelEvent from "../models/TravelEvent";
 import FavoritesContext from "../context/FavoriteContext";
@@ -12,6 +14,14 @@ const EventDetails = () => {
 
   const findImage = (eventImage: TravelEvent) => {
     return eventImage.images.find((image) => image.ratio === "16_9");
+  };
+
+  const findDate = (dateTime: string) => {
+    if (travelEvent || null) {
+      let date = dateTime.slice(5, 10);
+      let year = dateTime.slice(0, 4);
+      return `${date}-${year}`;
+    }
   };
 
   const convertTime = (dateTime: string) => {
@@ -38,6 +48,7 @@ const EventDetails = () => {
       getEventById(id).then((res) => setTravelEvent(res));
     }
   }, [id]);
+  console.log(travelEvent?.url);
 
   return (
     <div className="EventDetails">
@@ -50,6 +61,10 @@ const EventDetails = () => {
             {travelEvent._embedded.venues[0].state.name},{" "}
             {travelEvent._embedded.venues[0].postalCode}
           </p>
+          <a href={travelEvent.url} className="ticket">
+            Purchase Ticket
+          </a>
+          <p>Start Date: {findDate(travelEvent.dates.start.dateTime)}</p>
           <p>Start Time: {convertTime(travelEvent.dates.start.dateTime)} EST</p>
           {travelEvent.info ? (
             <p>{travelEvent.info}</p>
