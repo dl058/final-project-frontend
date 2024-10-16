@@ -8,3 +8,9 @@
   width: 300px;
   height: auto;
 }
+
+.ticket {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 4px;
+}

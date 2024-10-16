@@ -9,12 +9,11 @@ interface Props {
 }
 
 const EventCard = ({ travelEvent }: Props) => {
-  const { addFav } = useContext(FavoritesContext);
-  const { removeFav } = useContext(FavoritesContext);
-  const { isItAFav } = useContext(FavoritesContext);
+  const { addFav, removeFav, isItAFav } = useContext(FavoritesContext);
+
   // To convert Zulu time to EST
   const convertTime = (dateTime: string) => {
-    if (travelEvent) {
+    if (dateTime) {
       let hours = parseInt(dateTime.slice(11, 13));
       let time = dateTime.slice(13, 16);
       let morning = true;
@@ -32,6 +31,14 @@ const EventCard = ({ travelEvent }: Props) => {
     }
   };
 
+  const findDate = (dateTime: string) => {
+    if (dateTime) {
+      let date = dateTime.slice(5, 10);
+      let year = dateTime.slice(0, 4);
+      return `${date}-${year}`;
+    }
+  };
+
   // const edit;
   return (
     <li className="EventCard">
@@ -39,9 +46,12 @@ const EventCard = ({ travelEvent }: Props) => {
         to={`/event/${encodeURIComponent(travelEvent.id)}`}
         className="travelEventId"
       >
-        <p>{travelEvent.name}</p>
+        <p className="eventName">{travelEvent.name}</p>
         <img src={travelEvent.images[4].url} className="eventCardImg" />
-        <p>
+        <p className="eventInfo">
+          Date: {findDate(travelEvent.dates.start.dateTime)}
+        </p>
+        <p className="eventInfo">
           Location: {travelEvent._embedded.venues[0].city.name},{" "}
           {travelEvent._embedded.venues[0].state.stateCode},{" "}
           {convertTime(travelEvent.dates.start.dateTime)}
