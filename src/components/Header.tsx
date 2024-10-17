@@ -34,6 +34,9 @@ const Header = () => {
             </Link>
           </li>
           <li>
+            <Link to="search">Search</Link>
+          </li>
+          <li>
             <Link to="/favorites">
               <i className="fa-solid fa-heart"></i> Favorites
             </Link>
