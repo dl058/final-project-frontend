@@ -1,36 +1,45 @@
-/* .Form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-}
-
-.search-btn {
-  width: 20%;
-  border-radius: 7px;
-  border: 1px solid #92c2e4;
-  margin-top: 5px;
-  background-color: #d6eeff;
-} */
-.Form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.locationForm {
+  background: linear-gradient(165deg, #f7fafc, #d6e8db, #e0b336);
+  min-height: 100vh;
   padding: 20px;
-  background-color: #ecf2f4;
-  border: 8px solid #e36940;
-  border-radius: 10px;
-  max-width: 600px;
-  margin: 0 auto;
 }
 
-.search-btn {
-  width: auto;
-  border-radius: 10px;
-  border: 2px solid #5a7d7c;
-  margin-top: 10px;
-  background-color: #f7fafc;
+.Form {
+  background-color: #fefee3;
+  border: 5px solid #d68c45;
+  border-radius: 15px;
+  padding: 30px;
+  width: 400px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin: 50px auto;
+  position: relative;
+}
+
+label {
+  font-family: "Yeseva One", serif;
+  font-size: 18px;
+  color: #4c956c;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 90%;
   padding: 10px;
-  color: #5a7d7c;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 2px solid #2c6e49;
+  background-color: #fff;
+  font-size: 16px;
+  color: #4c956c;
 }
-
+.search-btn {
+  background-color: #d68c45;
+  color: #fefee3;
+  border: 2px solid #2c6e49;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+.Form {
+  text-align: center;
+}

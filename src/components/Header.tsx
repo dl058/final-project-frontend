@@ -41,7 +41,11 @@ const Header = () => {
               <i className="fa-solid fa-heart"></i> Favorites
             </Link>
           </li>
-
+          <li>
+            <Link to="search">
+              <i className="fa-solid fa-magnifying-glass"></i> Search
+            </Link>
+          </li>
           <li>
             {" "}
             {user === null ? (
