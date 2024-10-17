@@ -7,10 +7,12 @@ const Favorites = () => {
   const { favorites } = useContext(FavoritesContext);
   console.log(favorites);
   return (
-    <div className="Favorites">
-      {favorites.map((fav) => (
-        <EventCard travelEvent={fav} key={fav.id} />
-      ))}
+    <div className="favoritesPage">
+      <div className="Favorites">
+        {favorites.map((fav) => (
+          <EventCard travelEvent={fav} key={fav.id} />
+        ))}
+      </div>
     </div>
   );
 };

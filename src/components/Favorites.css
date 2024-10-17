@@ -1,3 +1,17 @@
 .EventCard {
   margin: 10px 0px 10px 5px;
 }
+.favoritesPage {
+  background: linear-gradient(165deg, #f7fafc, #d6e8db, #e0b336);
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Favorites {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

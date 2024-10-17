@@ -39,7 +39,9 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link to="search">Search</Link>
+            <Link to="search">
+              <i className="fa-solid fa-magnifying-glass"></i> Search
+            </Link>
           </li>
           <li>
             {" "}

@@ -4,6 +4,7 @@ const LandingPage = () => {
   return (
     <div className="LandingPage">
       <p className="landingPg">
+        <p className="introTag"> No Plans... No Problem! </p>
         unPlan'd Adventure is your go-to for spontaneous, exciting experiences
         tailored just for you. Simply enter your zip code, set your adventure
         preferences, and let unPlan'd Adventure suggest unplanned activities

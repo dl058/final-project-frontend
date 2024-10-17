@@ -21,40 +21,42 @@ const LocationForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="Form">
-      <label htmlFor="searchTerm">Search:</label>
-      <input
-        type="text"
-        name="searchTerm"
-        id="searchTerm"
-        value={query}
-        onChange={(e) => {
-          setQuery(e.target.value);
-        }}
-        placeholder="Search for an Event"
-      />
-      <label htmlFor="city">City:</label>
-      <input
-        type="text"
-        name="city"
-        id="city"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        placeholder="Enter a city"
-      />
-      <label htmlFor="state">State:</label>
-      <input
-        type="text"
-        name="state"
-        id="state"
-        value={state}
-        onChange={(e) => setState(e.target.value)}
-        placeholder="Enter a state"
-      />
-      <button type="submit" className="search-btn">
-        Search
-      </button>
-    </form>
+    <div className="locationForm">
+      <form onSubmit={handleSubmit} className="Form">
+        <label htmlFor="searchTerm">Event Name or Type:</label>
+        <input
+          type="text"
+          name="searchTerm"
+          id="searchTerm"
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+          }}
+          placeholder="e.g. Harry Potter or Music"
+        />
+        <label htmlFor="city">City:</label>
+        <input
+          type="text"
+          name="city"
+          id="city"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          placeholder="Enter a city"
+        />
+        <label htmlFor="state">State:</label>
+        <input
+          type="text"
+          name="state"
+          id="state"
+          value={state}
+          onChange={(e) => setState(e.target.value)}
+          placeholder="Enter a state"
+        />
+        <button type="submit" className="search-btn">
+          Search
+        </button>
+      </form>
+    </div>
   );
 };
 

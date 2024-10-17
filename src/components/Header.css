@@ -1,31 +1,27 @@
-img.headerImg {
-  width: 100%;
-  height: auto;
-  cursor: pointer;
-  margin: 8px;
-}
-
 ul.dropdown {
   list-style: none;
   padding-left: 0;
   display: flex;
   width: 100%;
   height: 100%;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  flex-direction: row;
+  font-size: 20px;
+  color: #a1d4b7;
 }
 
 .signBtn {
-  background-color: #ecf2f4;
-  border: 1px solid #92c2e4;
+  background-color: #fefee3;
+  border: 1px solid #2c6e49;
   border-radius: 10px;
-  color: #c54114;
-  padding: 10px 20 px;
-  font-size: 12px;
+  color: #d68c45;
+  padding: 12px 25px;
+  font-size: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header {
-  background-color: #a7cdbd;
+  background-color: #a1d4b7;
   padding-bottom: 5px;
   padding-left: 5px;
   display: flex;
@@ -33,13 +29,14 @@ header {
   align-items: center;
   height: 100%;
   font-family: "Yeseva One", serif;
+  font-size: 20px;
 }
 .logo-container {
   display: flex;
   align-items: center;
 }
 .logo {
-  width: 100px;
+  width: 125px;
   height: auto;
   margin-right: 15px;
 }
@@ -49,20 +46,20 @@ li {
 }
 
 .fa-bars {
-  /* position: relative; */
   text-align: right;
   margin-right: 10px;
-  color: #c54114;
+  color: #d68c45;
+  font-size: 20px;
 }
 .fa-heart {
-  color: #c54114;
+  color: #d68c45;
 }
 .fa-calendar {
-  color: #c54114;
+  color: #d68c45;
 }
 
 .fa-house {
-  color: #c54114;
+  color: #d68c45;
 }
 
 .fav-bars:active {
@@ -70,8 +67,11 @@ li {
   margin-right: 50px;
   padding-right: 50px;
 }
+.fa-magnifying-glass {
+  color: #d68c45;
+}
 
 .highlighted {
-  color: #c54114;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  color: #d68c45;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15);
 }
