@@ -1,3 +1,6 @@
+.EventCard {
+  margin: 10px;
+}
 
 h2 {
   text-align: center;
@@ -7,7 +10,12 @@ li.EventCard {
   list-style: none;
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  height: 275px;
+  border: 5px solid white;
+  border-radius: 25px;
+  flex-direction: column;
+  padding: 20px;
 }
 
 a.travelEventId {
@@ -17,7 +25,7 @@ a.travelEventId {
 
 img.eventCardImg {
   height: auto;
-  width: 100%;
+  width: 245px;
 }
 
 button.favBtn {

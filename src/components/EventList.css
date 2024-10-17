@@ -1,5 +1,13 @@
 div.EventList {
-  margin: 10px;
   display: flex;
   flex-direction: column;
+  background: linear-gradient(165deg, #f7fafc, #d6e8db, #e0b336);
+}
+
+.EventList ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 }
