@@ -1,7 +1,6 @@
 div.EventList {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(165deg, #f7fafc, #d6e8db, #e0b336);
 }
 
 .EventList ul {
@@ -10,4 +9,8 @@ div.EventList {
   align-items: center;
   justify-content: center;
   flex-direction: row;
+}
+
+.EventList {
+  background: linear-gradient(165deg, #f7fafc, #d6e8db, #e0b336);
 }

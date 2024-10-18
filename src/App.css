@@ -11,6 +11,7 @@ body {
   color: #3e442b;
   background-color: white;
   min-height: 100vh;
+  background: linear-gradient(165deg, #f7fafc, #d6e8db, #e0b336);
 }
 h1 {
   margin-right: 32px;
