@@ -5,7 +5,7 @@ import axios from "axios";
 const LandingPage = () => {
   return (
     <div className="LandingPage">
-      <p className="landingPg">
+      <section className="landingPg">
         <p className="introTag"> No Plans... No Problem! </p>
         unPlan'd Adventure is your go-to for spontaneous, exciting experiences
         tailored just for you. Simply enter your zip code, set your adventure
@@ -16,7 +16,7 @@ const LandingPage = () => {
         <p className="tagLine">
           Because the best moments are the ones you don't plan!
         </p>
-      </p>
+      </section>
     </div>
   );
 };

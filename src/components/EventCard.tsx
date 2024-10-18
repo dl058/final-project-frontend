@@ -51,6 +51,12 @@ const EventCard = ({ travelEvent }: Props) => {
         <p className="eventInfo">
           Date: {findDate(travelEvent.dates.start.dateTime)}
         </p>
+        {travelEvent.priceRanges && (
+          <p className="eventInfo">
+            Price: ${travelEvent.priceRanges[0].min} - $
+            {travelEvent.priceRanges[0].max}
+          </p>
+        )}
         <p className="eventInfo">
           Location: {travelEvent._embedded.venues[0].city.name},{" "}
           {travelEvent._embedded.venues[0].state.stateCode},{" "}
