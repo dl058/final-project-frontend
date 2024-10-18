@@ -15,11 +15,16 @@ const HomeRouter = () => {
   let city = searchParams.get("city") || null;
   let state = searchParams.get("state") || null;
   let query = searchParams.get("query") || null;
-
+  let maxPrice = searchParams.get("maxPrice") || null;
   useEffect(() => {
     if (city || query || state) {
       getEventsBySearchTermAndLocation(city, state, query).then((res) => {
-        setEvents(res._embedded.events);
+        let events = res._embedded.events;
+        console.log(maxPrice);
+        if (maxPrice) {
+          events = events.filter((item) => item.priceRanges[0].min < +maxPrice);
+        }
+        setEvents(events);
       });
     } else {
       let geopoint: any = {};
@@ -30,20 +35,32 @@ const HomeRouter = () => {
         geopoint.latitude = position.coords.latitude;
         geopoint.longitude = position.coords.longitude;
         getEventNearMe(geopoint).then((res) => {
-          setEvents(res._embedded.events);
+          let events = res._embedded.events;
+          if (maxPrice) {
+            events = events.filter(
+              (item) => item.priceRanges[0].min < +maxPrice
+            );
+          }
+          setEvents(events);
         });
       };
       const failure = () => {
         console.log("Geolocation not available");
         getRandomEvents().then((res) => {
-          setEvents(res._embedded.events);
+          let events = res._embedded.events;
+          if (maxPrice) {
+            events = events.filter(
+              (item) => item.priceRanges[0].min < +maxPrice
+            );
+          }
+          setEvents(events);
         });
       };
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success, failure);
       }
     }
-  }, [city, state, query]);
+  }, [city, state, query, maxPrice]);
 
   return (
     <>

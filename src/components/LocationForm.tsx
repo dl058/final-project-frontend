@@ -8,6 +8,7 @@ const LocationForm = () => {
   const [query, setQuery] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
   const nav = useNavigate();
 
   const handleSubmit = (e: FormEvent) => {
@@ -16,6 +17,7 @@ const LocationForm = () => {
       ...(city ? { city: city } : {}),
       ...(state ? { state: state } : {}),
       ...(query ? { query: query } : {}),
+      ...(maxPrice ? { maxPrice: maxPrice } : {}),
     };
     nav(`/events?${new URLSearchParams(params)}`);
   };
@@ -51,6 +53,15 @@ const LocationForm = () => {
           value={state}
           onChange={(e) => setState(e.target.value)}
           placeholder="Enter a state"
+        />
+        <label htmlFor="maxPrice">Max Price:</label>
+        <input
+          type="text"
+          name="maxPrice"
+          id="maxPrice"
+          value={maxPrice}
+          onChange={(e) => setMaxPrice(e.target.value)}
+          placeholder="Enter a Max Price"
         />
         <button type="submit" className="search-btn">
           Search

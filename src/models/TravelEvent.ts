@@ -53,7 +53,7 @@ export default interface TravelEvent {
   geoPoint?: GeoPoint;
   keyword?: string;
   dates: Dates;
-  priceRange: PriceRange[];
+  priceRanges: PriceRange[];
   _embedded: Embedded;
   venue: Venues;
   state: State;
