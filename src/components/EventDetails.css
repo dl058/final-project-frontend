@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 20px;
 }
 
 .eventDetailsImg {
-  width: 300px;
+  width: 1000px;
   height: auto;
 }
 
@@ -17,4 +18,15 @@
 
 p.eventDetailsInfo {
   margin: 10px;
+}
+
+.EventDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.google-map {
+  width: 99vw;
+  height: 500px;
 }

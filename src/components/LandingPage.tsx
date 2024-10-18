@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import "./LandingPage.css";
+import axios from "axios";
 
 const LandingPage = () => {
   return (

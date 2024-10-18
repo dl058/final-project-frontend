@@ -51,6 +51,7 @@ ul {
 p.eventName {
   font-size: 12px;
   font-weight: 700;
+  max-width: 235px;
 }
 
 p.eventInfo {

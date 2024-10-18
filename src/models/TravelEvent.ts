@@ -29,6 +29,7 @@ interface Venues {
   timezone: string;
   city: City;
   state: State;
+  name: string;
 }
 
 interface City {

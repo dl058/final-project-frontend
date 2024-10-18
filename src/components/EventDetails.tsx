@@ -11,6 +11,21 @@ const EventDetails = () => {
   const [travelEvent, setTravelEvent] = useState<TravelEvent | null>(null);
   const id: string = useParams().id!;
   const { addFav, removeFav, isItAFav } = useContext(FavoritesContext);
+  const [src, setSrc] = useState("");
+  useEffect(() => {
+    if (travelEvent) {
+      const apiKey = import.meta.env.VITE_MAP_API_KEY;
+      const city = travelEvent?._embedded.venues[0].city.name;
+      const state = travelEvent?._embedded.venues[0].state.stateCode;
+      const name = travelEvent?._embedded.venues[0].name;
+      setSrc(
+        `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${encodeURIComponent(
+          `${name}${city}${state}`
+        )}`
+      );
+      console.log(src);
+    }
+  }, [travelEvent]);
 
   const findImage = (eventImage: TravelEvent) => {
     return eventImage.images.find((image) => image.ratio === "16_9");
@@ -88,6 +103,17 @@ const EventDetails = () => {
         </div>
       ) : (
         <p>Loading...</p>
+      )}
+      {src !== "" && (
+        <iframe
+          width="0"
+          height="0"
+          style={{ border: 0 }}
+          referrerPolicy="no-referrer-when-downgrade"
+          src={src}
+          allowFullScreen
+          className="google-map"
+        ></iframe>
       )}
     </div>
   );
