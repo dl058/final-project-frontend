@@ -12,6 +12,10 @@ export interface Props {
 const EventList = ({ travelEvents, links, pageChange }: Props) => {
   console.log(links);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="EventList">
       <h2>List of Events </h2>
@@ -26,9 +30,30 @@ const EventList = ({ travelEvents, links, pageChange }: Props) => {
       )}
       {links && (
         <div className="pagination">
-          <button onClick={() => pageChange(links.first.href)}>First</button>
-          <button onClick={() => pageChange(links.next.href)}>Next</button>
-          <button onClick={() => pageChange(links.last.href)}>Last</button>
+          <button
+            onClick={() => {
+              pageChange(links.first.href);
+              scrollToTop();
+            }}
+          >
+            First
+          </button>
+          <button
+            onClick={() => {
+              pageChange(links.next.href);
+              scrollToTop();
+            }}
+          >
+            Next
+          </button>
+          <button
+            onClick={() => {
+              pageChange(links.last.href);
+              scrollToTop();
+            }}
+          >
+            Last
+          </button>
         </div>
       )}
       {/* maybe add a gif */}
