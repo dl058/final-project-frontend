@@ -89,3 +89,12 @@ export const getEventNearMe = async (geopoint: any): Promise<EventResponse> => {
   });
   return res.data;
 };
+
+export const pagination = async (uri: string): Promise<EventResponse> => {
+  const res = await axios.get(`https://app.ticketmaster.com${uri}`, {
+    params: {
+      apikey: apiKey,
+    },
+  });
+  return res.data;
+};

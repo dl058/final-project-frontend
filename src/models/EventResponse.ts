@@ -1,3 +1,4 @@
+import Links from "./Links";
 import TravelEvent from "./TravelEvent";
 
 interface EventsArray {
@@ -6,4 +7,5 @@ interface EventsArray {
 
 export default interface EventResponse {
   _embedded: EventsArray;
+  _links: Links;
 }
